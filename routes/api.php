@@ -17,12 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-/*Salesmen routes*/
+//Salesmen routes
 Route::get('salesmen', 'SalesmenController@index');
 Route::get('salesmen/{id}', 'SalesmenController@show');
 Route::post('salesmen', 'SalesmenController@store');
-Route::put('salesmen/{id}', 'SalesmenController@update');
-Route::patch('salesmen/{id}', 'SalesmenController@patch');
-Route::delete('salesmen/{id}', 'SalesmenController@destroy');
-Route::post('salesmen/directions/{id}', 'SalesmenController@store');
-Route::put('salesmen/directions/{id}', 'SalesmenController@update');
+Route::put('salesmen/{salesman}', 'SalesmenController@update');
+Route::patch('salesmen/{salesman}', 'SalesmenController@update');
+Route::delete('salesmen/{salesman}', 'SalesmenController@destroy');
+Route::post('salesmen/{salesman}/direction', 'SalesmanDirectionController@store');
+Route::put('salesmen/{salesman}/direction', 'SalesmanDirectionController@update');
