@@ -24,5 +24,15 @@ Route::post('salesmen', 'SalesmenController@store');
 Route::put('salesmen/{salesman}', 'SalesmenController@update');
 Route::patch('salesmen/{salesman}', 'SalesmenController@update');
 Route::delete('salesmen/{salesman}', 'SalesmenController@destroy');
+
+//Salesman-Direction Routes
 Route::post('salesmen/{salesman}/direction', 'SalesmanDirectionController@store');
 Route::put('salesmen/{salesman}/direction', 'SalesmanDirectionController@update');
+
+//Products routes
+Route::get('products', 'ProductsController@index');
+Route::get('products/{id}', 'ProductsController@show');
+Route::post('products', 'ProductsController@store');
+Route::put('products/{product}', 'ProductsController@update');
+Route::patch('products/{product}', 'ProductsController@update');
+Route::delete('pruducts/{product}', 'ProductsController@destroy');

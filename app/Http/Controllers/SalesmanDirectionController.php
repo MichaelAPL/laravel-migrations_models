@@ -12,10 +12,13 @@ class SalesmanDirectionController extends Controller
     {
       $attributes = $request->all();
 
-      $direction = new Direction($attributes);
-      $salesman->direction()->save($direction);
-
-      return response()->json($direction);
+      if($salesman->direction === null){
+          $direction = new Direction($attributes);
+          $salesman->direction()->save($direction);
+          return response()->json($direction);
+      }else{
+        echo "this salesman has already a direction!";
+      }
     }
 
     public function update(Request $request, Salesman $salesman)
