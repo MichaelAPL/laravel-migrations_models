@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Http\Requests\ProductRequest;
+use App\Salesman;
 
 class ProductsController extends Controller
 {
@@ -22,9 +23,11 @@ class ProductsController extends Controller
   {
     $attributes = $request->all();
     $tags = $request->input('tags');
+    $salesman_id = $request->input('salesman_id');
 
-    //$product = Product::create($attributes);
-    return response()->json($tags);
+    $salesman = Salesman::findOrfail($salesman_id);
+    $product = Product::create(['salesman_id' => $salesman_id]);
+    return response()->json($product);
   }
 
   public function update(Request $request, Product $product)
