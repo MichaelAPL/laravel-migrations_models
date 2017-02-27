@@ -19,7 +19,7 @@ class CrateProductTable extends Migration
           $table->float('price');
           $table->text('description');
           $table->integer('salesman_id')->unsigned();
-          $table->timestamps();
+          $table->timestamps();          
         });
     }
 

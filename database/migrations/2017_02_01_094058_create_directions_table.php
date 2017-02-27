@@ -21,6 +21,8 @@ class CreateDirectionsTable extends Migration
             $table->string('country');
             $table->string('postal_code');
             $table->integer('salesman_id')->unsigned();
+            $table->foreign('salesman_id')->references('id')->on('salesmen')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

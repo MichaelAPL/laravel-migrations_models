@@ -40,6 +40,7 @@ class AppTablesSeeder extends Seeder
         ])->each(function ($p) {
             //Associating each product to an existing tag (randomly)
             $p->tags()->save(App\Tag::all()->random());
+            $p->tags()->save(App\Tag::all()->random());
         });
       }
 
